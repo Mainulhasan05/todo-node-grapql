@@ -1,17 +1,21 @@
 const { ApolloServer } = require("@apollo/server");
 const { startStandaloneServer } = require("@apollo/server/standalone");
+require('dotenv').config();
+const db = require('./db_config/db');
+const typeDefs = require('./graphql/typeDefs');
+const resolvers = require('./graphql/resolvers');
 
-const typeDefs = `#graphql
-  type Book {
-    name: String
-    author: String
-  }
-  type Query {
-    hello: String
-    books: [Book]
-    vungChung(author:String): [Book]
-  }
-`;
+
+
+
+db.sync().then(() => {
+    console.log("Database connected");
+    }).catch((err) => {
+    console.log("Error connecting to database", err);
+    }
+);
+
+
 
 const books = [
   {
@@ -24,18 +28,7 @@ const books = [
   },
 ];
 
-const resolvers = {
-  Query: {
-    hello: () => "world",
-    books: () => books,
-    vungChung: async (parent, args, context, info) => {
-      
-      const { author } = args;
-      const result = books.filter((book) => book.author === author);
-      return result;
-    }
-  },
-};
+
 
 const server = new ApolloServer({
   typeDefs,

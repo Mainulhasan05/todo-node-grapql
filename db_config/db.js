@@ -6,4 +6,4 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, pr
   dialect: 'mysql',
 });
 
-export default sequelize;
+module.exports = sequelize;
