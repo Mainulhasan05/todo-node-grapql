@@ -12,12 +12,7 @@ const resolvers = {
         const user = await getUserById(id);
         return user;
       },
-      vungChung: async (parent, args, context, info) => {
-        
-        const { author } = args;
-        const result = books.filter((book) => book.author === author);
-        return result;
-      }
+      
     },
   };
 
