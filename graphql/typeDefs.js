@@ -22,6 +22,7 @@ type User{
     hello: String
     books: [Book]
     users: [User]
+    user(id:ID!): User
     vungChung(author:String): [Book]
   }
 `;
