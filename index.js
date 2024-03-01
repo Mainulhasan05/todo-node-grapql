@@ -5,9 +5,6 @@ const db = require('./db_config/db');
 const typeDefs = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
 
-
-
-
 db.sync().then(() => {
     console.log("Database connected");
     }).catch((err) => {
