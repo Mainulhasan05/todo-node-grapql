@@ -14,18 +14,6 @@ db.sync().then(() => {
 
 
 
-const books = [
-  {
-    name: "Harry Potter and the Chamber of Secrets",
-    author: "J.K. Rowling",
-  },
-  {
-    name: "Jurassic Park",
-    author: "Michael Crichton",
-  },
-];
-
-
 
 const server = new ApolloServer({
   typeDefs,
