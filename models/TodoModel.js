@@ -7,17 +7,17 @@ const Todo = sequelize.define('Todo', {
     },
     activeStatus: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
       defaultValue: true
     },
     progress: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0
     },
     priority: {
       type: DataTypes.ENUM('Low', 'Medium', 'High'),
-      allowNull: false,
+      allowNull: true,
       defaultValue: 'Low'
     },
     createdBy: {
